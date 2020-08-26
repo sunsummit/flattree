@@ -6,6 +6,8 @@ import Node from './node';
 // @param {object} [options] The options object.
 // @param {boolean} [options.openAllNodes] True to open all nodes. Defaults to false.
 // @param {array} [options.openNodes] An array that contains the ids of open nodes.
+// @param {boolean} [options.checkAllNodes] True to check all nodes. Defaults to false.
+// @param {array} [options.checkNodes] An array that contains the ids of check nodes.
 // @return {array}
 const flatten = (nodes = [], options = {}) => {
     nodes = [].concat(nodes);
@@ -18,6 +20,8 @@ const flatten = (nodes = [], options = {}) => {
 
     options.openAllNodes = !!options.openAllNodes;
     options.openNodes = options.openNodes || [];
+    options.checkAllNodes = !!options.checkAllNodes;
+    options.checkNodes = options.checkNodes || [];
     options.throwOnError = !!options.throwOnError;
 
     { // root node
@@ -32,6 +36,7 @@ const flatten = (nodes = [], options = {}) => {
             state: {
                 depth: -1,
                 open: true, // always open
+                checked: false,
                 path: '',
                 prefixMask: '',
                 total: 0
@@ -107,6 +112,25 @@ const flatten = (nodes = [], options = {}) => {
                 }
                 return false;
             })();
+            const checked = (() => {
+                const { checkAllNodes, checkNodes } = options;
+                if (checkAllNodes) {
+                    return true;
+                }
+                // determine from input
+                if (node.state && node.state.checked) {
+                    return true;
+                }
+                // determine by node object
+                if (checkNodes.indexOf(node) >= 0) {
+                    return true;
+                }
+                // determine by node id
+                if (checkNodes.indexOf(node.id) >= 0) {
+                    return true;
+                }
+                return false;
+            })();
             const prefixMask = ((prefix) => {
                 let mask = '';
                 while (prefix.length > 0) {
@@ -129,6 +153,7 @@ const flatten = (nodes = [], options = {}) => {
             node.state = extend({}, node.state, {
                 depth: depth + 1,
                 open: open,
+                checked: checked,
                 path: path,
                 prefixMask: prefixMask,
                 total: 0

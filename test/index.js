@@ -32,6 +32,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0',
                 depth: 0,
                 open: true,
+                checked: false,
                 prefixMask: '0',
                 total: 11
             }
@@ -45,6 +46,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.0',
                 depth: 1,
                 open: false,
+                checked: false,
                 prefixMask: '00',
                 total: 0
             }
@@ -58,6 +60,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1',
                 depth: 1,
                 open: true,
+                checked: false,
                 prefixMask: '00',
                 total: 9
             }
@@ -71,6 +74,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.0',
                 depth: 2,
                 open: true,
+                checked: false,
                 prefixMask: '000',
                 total: 4
             }
@@ -84,6 +88,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.0.0',
                 depth: 3,
                 open: true,
+                checked: false,
                 prefixMask: '0001',
                 total: 2
             }
@@ -97,6 +102,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.0.0.0',
                 depth: 4,
                 open: false,
+                checked: false,
                 prefixMask: '00011',
                 total: 0
             }
@@ -110,6 +116,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.0.0.1',
                 depth: 4,
                 open: false,
+                checked: false,
                 prefixMask: '00011',
                 total: 0
             }
@@ -123,6 +130,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.0.1',
                 depth: 3,
                 open: false,
+                checked: false,
                 prefixMask: '0001',
                 total: 0
             }
@@ -136,6 +144,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.1',
                 depth: 2,
                 open: true,
+                checked: false,
                 prefixMask: '000',
                 total: 2
             }
@@ -149,6 +158,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.1.0',
                 depth: 3,
                 open: true,
+                checked: false,
                 prefixMask: '0001',
                 total: 1
             }
@@ -162,6 +172,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.1.0.0',
                 depth: 4,
                 open: false,
+                checked: false,
                 prefixMask: '00010',
                 total: 0
             }
@@ -175,6 +186,7 @@ test('[flatten] Flat list view', (t) => {
                 path: '.0.1.2',
                 depth: 2,
                 open: false,
+                checked: false,
                 prefixMask: '000',
                 total: 0
             }
@@ -342,6 +354,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0',
                 depth: 0,
                 open: true,
+                checked: false,
                 prefixMask: '0',
                 total: 8
             }
@@ -355,6 +368,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.0',
                 depth: 1,
                 open: false,
+                checked: false,
                 prefixMask: '00',
                 total: 0
             }
@@ -368,6 +382,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1',
                 depth: 1,
                 open: true,
+                checked: false,
                 prefixMask: '00',
                 total: 6
             }
@@ -381,6 +396,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1.0',
                 depth: 2,
                 open: true,
+                checked: false,
                 prefixMask: '000',
                 total: 2
             }
@@ -394,6 +410,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1.0.0',
                 depth: 3,
                 open: false,
+                checked: false,
                 prefixMask: '0001',
                 total: 0
             }
@@ -407,6 +424,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1.0.1',
                 depth: 3,
                 open: false,
+                checked: false,
                 prefixMask: '0001',
                 total: 0
             }
@@ -420,6 +438,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1.1',
                 depth: 2,
                 open: true,
+                checked: false,
                 prefixMask: '000',
                 total: 1
             }
@@ -433,6 +452,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1.1.0',
                 depth: 3,
                 open: false,
+                checked: false,
                 prefixMask: '0001',
                 total: 0
             }
@@ -446,6 +466,7 @@ test('[flatten] Open all nodes, close two nodes, and rebuild the list', (t) => {
                 path: '.0.1.2',
                 depth: 2,
                 open: false,
+                checked: false,
                 prefixMask: '000',
                 total: 0
             }
